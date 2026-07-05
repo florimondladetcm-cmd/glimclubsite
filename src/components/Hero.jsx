@@ -34,7 +34,7 @@ export default function Hero() {
           </div>
           <Magnetic
             as={Link}
-            to="/club"
+            to="/concept"
             style={{
               display: "inline-flex",
               alignItems: "center",
@@ -49,7 +49,7 @@ export default function Hero() {
               textTransform: "uppercase",
             }}
           >
-            Rejoindre le club
+            Découvrir le concept
           </Magnetic>
         </nav>
 
@@ -80,10 +80,10 @@ export default function Hero() {
           <div data-reveal="true" className="hero-ctas" style={{ display: "flex", flexWrap: "wrap", gap: 16, marginTop: 36 }}>
             <Magnetic
               as={Link}
-              to="/club"
+              to="/concept"
               style={{ background: "var(--lime)", color: "var(--black)", textDecoration: "none", fontWeight: 700, fontSize: 15, letterSpacing: ".04em", padding: "18px 34px", textTransform: "uppercase" }}
             >
-              Rejoindre le club
+              Découvrir le concept
             </Magnetic>
             <Magnetic
               as={Link}

@@ -4,7 +4,7 @@ import gsap from "gsap";
 import Magnetic from "../components/Magnetic";
 
 const GAGS = [
-  "Pas de -20% si vous avez plus de 60 ans.",
+  "Pas de rabais sur la monture parce que vous avez 60 ans.",
   "Pas d'« offre exceptionnelle » qui dure depuis 2019.",
   "Pas de deuxième paire « offerte » (en fait payée sur la première).",
   "Pas d'anniversaire qui se fête toute l'année — le vôtre dure un jour, comme tout le monde.",
@@ -95,8 +95,8 @@ export default function Offres() {
             <Magnetic as="button" onClick={() => navigate("/verres")} style={{ background: "var(--lime)", color: "var(--black)", border: "none", fontWeight: 700, fontSize: 15, letterSpacing: ".04em", padding: "18px 32px", textTransform: "uppercase", cursor: "pointer" }}>
               Voir nos vrais prix
             </Magnetic>
-            <Magnetic as="button" onClick={() => navigate("/club")} style={{ background: "none", border: "2px solid var(--lime)", color: "var(--cream)", fontWeight: 700, fontSize: 15, letterSpacing: ".04em", padding: "16px 30px", textTransform: "uppercase", cursor: "pointer" }}>
-              Rejoindre le club quand même
+            <Magnetic as="button" onClick={() => navigate("/concept")} style={{ background: "none", border: "2px solid var(--lime)", color: "var(--cream)", fontWeight: 700, fontSize: 15, letterSpacing: ".04em", padding: "16px 30px", textTransform: "uppercase", cursor: "pointer" }}>
+              Découvrir le concept
             </Magnetic>
           </div>
         </div>

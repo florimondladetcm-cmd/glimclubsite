@@ -7,8 +7,6 @@ const LINKS = [
   { label: "Nos verres", to: "/verres" },
   { label: "Nos garanties", to: "/garanties" },
   { label: "Notre boutique", to: "/boutique" },
-  { label: "Rejoindre le club", to: "/club" },
-  { label: "À propos", to: "/apropos" },
   { label: "Conseils", to: "/conseils" },
   { label: "Shop", to: "/shop" },
   { label: "Presse", to: "/presse" },
@@ -48,8 +46,7 @@ export default function NavMenu() {
           left: "50%",
           transform: "translateX(-50%)",
           zIndex: 9700,
-          background: "rgba(10,10,15,.55)",
-          backdropFilter: "blur(6px)",
+          background: "rgba(10,10,15,.75)",
           border: "2px solid rgba(196,240,0,.4)",
           padding: "10px 18px",
           fontSize: 18,
@@ -77,9 +74,8 @@ export default function NavMenu() {
           alignItems: "center",
           justifyContent: "center",
           gap: 6,
-          background: open ? "var(--lime)" : "rgba(10,10,15,.55)",
+          background: open ? "var(--lime)" : "rgba(10,10,15,.75)",
           border: "2px solid var(--lime)",
-          backdropFilter: "blur(6px)",
           transition: "background .2s",
         }}
       >
@@ -106,14 +102,7 @@ export default function NavMenu() {
           transition: "opacity .35s ease, transform .35s ease, visibility 0s linear " + (open ? "0s" : ".35s"),
         }}
       >
-        <nav
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit,minmax(240px,1fr))",
-            columnGap: "clamp(24px,4vw,64px)",
-            rowGap: "clamp(4px,1vh,10px)",
-          }}
-        >
+        <nav style={{ display: "flex", flexDirection: "column", gap: "clamp(2px,.6vh,6px)" }}>
           {LINKS.map((link) => (
             <button
               key={link.label}
@@ -123,10 +112,10 @@ export default function NavMenu() {
                 textAlign: "left",
                 background: "none",
                 border: "none",
-                padding: "8px 0",
+                padding: "6px 0",
                 color: link.accent ? "var(--lime)" : "var(--cream)",
-                fontSize: "clamp(22px,3vw,38px)",
-                lineHeight: 1.15,
+                fontSize: "clamp(20px,3.2vw,32px)",
+                lineHeight: 1.2,
                 cursor: "pointer",
               }}
             >
@@ -135,7 +124,7 @@ export default function NavMenu() {
           ))}
         </nav>
 
-        <div className="font-mono" style={{ marginTop: "clamp(32px,5vh,56px)", fontSize: 11, letterSpacing: ".18em", color: "var(--cream)", opacity: 0.4, textTransform: "uppercase" }}>
+        <div className="font-mono" style={{ marginTop: "clamp(24px,4vh,40px)", fontSize: 11, letterSpacing: ".18em", color: "var(--cream)", opacity: 0.4, textTransform: "uppercase" }}>
           GLIM CLUB — Vevey, Suisse
         </div>
       </div>

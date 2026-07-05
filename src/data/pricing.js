@@ -22,7 +22,7 @@ export const THICKNESS = [
 
 export const AR_OPTIONS = [
   { id: "oasis", name: "Oasis", price: 0, tag: "Inclus", desc: "Anti-reflet standard, traitement durci pour limiter les micro-rayures." },
-  { id: "spectra", name: "Spectra", price: 50, tag: "Premium", desc: "Multicouches, oléophobe, hydrophobe, antistatique : des verres si purs qu'on les oublie." },
+  { id: "spectra", name: "Spectra Ultra", price: 50, tag: "Premium", desc: "Multicouches, oléophobe, hydrophobe, antistatique, filtre UV : des verres si purs qu'on les oublie." },
 ];
 
 export const TINTS = [
@@ -36,12 +36,10 @@ export const AR_INTERNE_PRICE = 30; // anti-reflet face interne (verres teintés
 export const BLUE_LIGHT_PRICE = 25; // filtre lumière bleue (verres clairs uniquement)
 
 // ============================================================
-// RÉGLAGES ÉDITABLES — club & boutique
+// RÉGLAGES ÉDITABLES — boutique
 // ============================================================
-export const NEXT_MEMBER_NUMBER = 27; // numéro du prochain membre fondateur
 export const SHOW_COUNTDOWN = true;
 export const OPENING_DATE = "2027-02-15T10:00:00";
-export const MEMBER_GOAL = 100;
 
 export const chf = (n) => n.toLocaleString("fr-CH") + " CHF";
 
@@ -49,7 +47,33 @@ export const chf = (n) => n.toLocaleString("fr-CH") + " CHF";
 // SHOP — accessoires, prix indicatifs
 // ============================================================
 export const SHOP_PRODUCTS = [
-  { id: "spray", name: "Spray nettoyant", price: 12, video: "assets/spray.mp4", img: "images/spray.png", desc: "Formule douce, sans traces, tous types de verres. 35 ml." },
-  { id: "microfibre", name: "Microfibre collector", price: 8, video: "assets/microfibre.mp4", img: "images/microfibre.png", desc: "Le tissu qu'on garde toujours sur soi. Lavable, réutilisable." },
-  { id: "totebag", name: "Tote bag GLIM CLUB", price: 25, video: "assets/tote-bag.mp4", img: "images/totebag.png", desc: "Coton épais, format généreux. Pour transporter autre chose que des lunettes." },
+  {
+    id: "spray",
+    name: "Spray nettoyant",
+    price: 8,
+    refillPrice: 4,
+    video: "assets/spray.mp4",
+    img: "images/spray.png",
+    shortDesc: "35 ml, rechargeable.",
+    desc: "Formule douce, sans traces, sur tous types de verres. Le flacon (35 ml) est rechargeable : une recharge à 4 CHF suffit pour repartir pour plusieurs mois.",
+  },
+  {
+    id: "microfibre",
+    name: "Microfibre collector",
+    price: 8,
+    video: "assets/microfibre.mp4",
+    img: "images/microfibre.png",
+    gallery: ["images/microfibre-variants.png"],
+    shortDesc: "Lavable, réutilisable.",
+    desc: "Le tissu qu'on garde toujours sur soi. Lavable, réutilisable, doux sur tous les traitements de verres — y compris l'anti-reflet Spectra Ultra.",
+  },
+  {
+    id: "totebag",
+    name: "Tote bag GLIM CLUB",
+    price: 25,
+    video: "assets/tote-bag.mp4",
+    img: "images/totebag.png",
+    shortDesc: "Coton épais, format généreux.",
+    desc: "Coton épais, format généreux. Pour transporter autre chose que des lunettes.",
+  },
 ];

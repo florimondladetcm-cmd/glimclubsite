@@ -44,7 +44,9 @@ function LensCard({ lens, selected, onClick }) {
         <div className="font-mono" style={{ fontSize: 11, letterSpacing: ".18em", textTransform: "uppercase", color: selected ? "var(--violet)" : "var(--lime)" }}>{lens.tag}</div>
         <div className="font-display" style={{ fontSize: "clamp(24px,2.2vw,34px)", letterSpacing: ".02em" }}>{lens.name}</div>
         <div style={{ fontSize: 14, lineHeight: 1.5, opacity: 0.75 }}>{lens.desc}</div>
-        <div className="font-display" style={{ fontSize: "clamp(22px,2vw,30px)", marginTop: "auto" }}>dès {chf(lens.price)}</div>
+        <div className="font-display" style={{ fontSize: "clamp(22px,2vw,30px)", marginTop: "auto" }}>
+          dès {chf(lens.price)} <span className="font-mono" style={{ fontSize: 12, letterSpacing: ".08em", textTransform: "none", opacity: 0.65, color: selected ? "var(--black)" : "var(--violet)" }}>la paire de verres</span>
+        </div>
       </div>
     </button>
   );

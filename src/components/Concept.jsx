@@ -1,7 +1,6 @@
 const STEPS = [
-  { n: "01", title: "Vous rejoignez le club", body: "Gratuit, sans engagement. Un compte, un statut de membre fondateur si vous êtes parmi les 100 premiers." },
-  { n: "02", title: "Vous composez en toute transparence", body: "Monture, verres, options : vous voyez le prix se construire sous vos yeux, jamais après coup." },
-  { n: "03", title: "Vous gardez le même opticien", body: "Pas de turnover de vendeurs, pas de fiche client anonyme. La même personne, année après année." },
+  { n: "01", title: "Vous composez en toute transparence", body: "Monture, verres, options : vous voyez le prix se construire sous vos yeux, jamais après coup." },
+  { n: "02", title: "Vous gardez le même opticien", body: "Pas de turnover de vendeurs, pas de fiche client anonyme. La même personne, année après année." },
 ];
 
 export default function Concept() {
@@ -11,15 +10,9 @@ export default function Concept() {
         <div className="font-mono" style={{ fontSize: 13, letterSpacing: ".2em", color: "var(--lime)", textTransform: "uppercase", marginBottom: 24 }}>
           Notre concept
         </div>
-        <h2 data-reveal="true" className="font-display" style={{ margin: "0 0 16px", fontSize: "clamp(40px,7vw,112px)", lineHeight: 1, color: "var(--cream)" }}>
+        <h2 data-reveal="true" className="font-display" style={{ margin: "0 0 clamp(48px,7vh,80px)", fontSize: "clamp(40px,7vw,112px)", lineHeight: 1, color: "var(--cream)" }}>
           Un club.<br /><span style={{ color: "var(--violet)" }}>Pas une boutique.</span>
         </h2>
-        <p data-reveal="true" style={{ margin: "0 0 clamp(48px,7vh,80px)", maxWidth: "58ch", fontSize: "clamp(15px,1.25vw,19px)", lineHeight: 1.65, color: "var(--cream)", opacity: 0.75 }}>
-          Une boutique, on y entre une fois, on ressort avec une paire, et on ne revoit personne pendant deux ans.
-          Un club, on y appartient : même opticien, mêmes conditions, tant qu'on en a besoin. C'est cette relation-là
-          que GLIM CLUB construit à Vevey.
-        </p>
-
         <div style={{ display: "flex", flexDirection: "column", gap: "clamp(40px,6vh,72px)" }}>
           {STEPS.map((s) => (
             <div

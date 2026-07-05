@@ -29,9 +29,9 @@ export default function AntiReflets() {
             <div style={{ aspectRatio: "1", background: `#000 url('${asset("images/ar-super.png")}') center/cover no-repeat` }} />
             <div style={{ padding: "clamp(22px,2.5vw,34px)", display: "flex", flexDirection: "column", gap: 10 }}>
               <div className="font-mono" style={{ fontSize: 11, letterSpacing: ".18em", textTransform: "uppercase", color: "var(--lime)" }}>L'option premium — + {chf(spectra.price)} · indicatif</div>
-              <div className="font-display" style={{ fontSize: "clamp(26px,2.6vw,40px)", letterSpacing: ".02em", color: "var(--cream)" }}>Spectra</div>
+              <div className="font-display" style={{ fontSize: "clamp(26px,2.6vw,40px)", letterSpacing: ".02em", color: "var(--cream)" }}>Spectra Ultra</div>
               <p style={{ margin: 0, fontSize: 15, lineHeight: 1.6, color: "var(--cream)", opacity: 0.7 }}>
-                Anti-reflet premium multicouches. Oléophobe, hydrophobe, antistatique : l'eau perle, les traces s'effacent, la poussière renonce. Des verres si purs qu'on oublie qu'ils sont là.
+                Anti-reflet premium multicouches. Oléophobe, hydrophobe, antistatique, filtre UV : l'eau perle, les traces s'effacent, la poussière renonce. Des verres si purs qu'on oublie qu'ils sont là.
               </p>
             </div>
           </div>

@@ -30,7 +30,7 @@ const STEPS = [
   {
     n: "05",
     title: "Pas de grand cirque marketing",
-    body: "Nous ne mettons pas notre budget dans des campagnes énormes. Pas d'affiches géantes, pas de slogans vides. Chez GLIM CLUB, on fait beaucoup nous-mêmes — et notre meilleure publicité, c'est vous : votre avis, votre sourire, votre bouche-à-oreille. L'argent, on préfère le mettre dans de bons verres, de belles montures, une vraie expérience client. Et parfois dans un verre de chasselas le samedi soir — parce qu'il faut aussi voir clair dans la vie.",
+    body: "Nous ne mettons pas notre budget dans des campagnes énormes. Pas d'affiches géantes, pas de slogans vides. Chez GLIM CLUB, on fait beaucoup nous-mêmes — et notre meilleure publicité, c'est vous : votre avis, votre sourire, votre bouche-à-oreille.",
   },
 ];
 
