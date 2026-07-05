@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { OPENING_DATE, SHOW_COUNTDOWN } from "../data/pricing";
+import { asset } from "../lib/asset";
 
 function getRemaining() {
   const diff = Math.max(0, new Date(OPENING_DATE).getTime() - Date.now());
@@ -53,7 +54,7 @@ export default function Boutique() {
           )}
         </div>
         <div data-reveal="scale" style={{ aspectRatio: "4/5", border: "2px solid var(--violet)", overflow: "hidden" }}>
-          <img src="/images/vitrine-nb.png" alt="La vitrine GLIM CLUB à Vevey" style={{ display: "block", width: "100%", height: "100%", objectFit: "cover" }} />
+          <img src={asset("images/vitrine-nb.png")} alt="La vitrine GLIM CLUB à Vevey" style={{ display: "block", width: "100%", height: "100%", objectFit: "cover" }} />
         </div>
       </div>
     </section>

@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import { MEMBER_GOAL, NEXT_MEMBER_NUMBER } from "../data/pricing";
 import Magnetic from "./Magnetic";
+import { asset } from "../lib/asset";
 
 export default function Club() {
   const [joined, setJoined] = useState(false);
@@ -57,13 +58,13 @@ export default function Club() {
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(180px,1fr))", gap: 12 }}>
             <div style={{ aspectRatio: "1", border: "2px solid var(--black)", overflow: "hidden" }}>
-              <img src="/images/microfibre.png" alt="Microfibre collector GLIM" style={{ display: "block", width: "100%", height: "100%", objectFit: "cover" }} />
+              <img src={asset("images/microfibre.png")} alt="Microfibre collector GLIM" style={{ display: "block", width: "100%", height: "100%", objectFit: "cover" }} />
             </div>
             <div style={{ aspectRatio: "1", border: "2px solid var(--black)", overflow: "hidden" }}>
-              <img src="/images/spray.png" alt="Spray nettoyant GLIM" style={{ display: "block", width: "100%", height: "100%", objectFit: "cover" }} />
+              <img src={asset("images/spray.png")} alt="Spray nettoyant GLIM" style={{ display: "block", width: "100%", height: "100%", objectFit: "cover" }} />
             </div>
             <div style={{ aspectRatio: "1", border: "2px solid var(--black)", overflow: "hidden" }}>
-              <img src="/images/totebag.png" alt="Tote bag GLIM CLUB" style={{ display: "block", width: "100%", height: "100%", objectFit: "cover" }} />
+              <img src={asset("images/totebag.png")} alt="Tote bag GLIM CLUB" style={{ display: "block", width: "100%", height: "100%", objectFit: "cover" }} />
             </div>
           </div>
           <div className="font-mono" style={{ marginTop: 10, fontSize: 11, letterSpacing: ".08em", opacity: 0.6 }}>

@@ -1,3 +1,5 @@
+import { asset } from "../lib/asset";
+
 const IMG_MASK = { WebkitMaskImage: "linear-gradient(to right,transparent,#000 40%)", maskImage: "linear-gradient(to right,transparent,#000 40%)" };
 
 function Pillar({ bg, fg, num, numColor, numOpacity, eyebrow, eyebrowColor, title, body, image, imageWidth }) {
@@ -41,7 +43,7 @@ export default function Pillars() {
         eyebrow="Pilier 02" eyebrowColor="var(--violet)"
         title="Style"
         body="Des montures choisies une à une, loin des marques sur-licenciées qu'on retrouve dans toutes les vitrines. Vous ne croiserez pas votre paire à chaque coin de rue."
-        image="/images/modele-femme.png" imageWidth="clamp(380px,52vw,860px)"
+        image={asset("images/modele-femme.png")} imageWidth="clamp(380px,52vw,860px)"
       />
       <Pillar
         bg="var(--violet)" fg="var(--cream)" num="3" numColor="var(--black)" numOpacity={0.16}
@@ -54,7 +56,7 @@ export default function Pillars() {
         eyebrow="Pilier 04" eyebrowColor="var(--violet)"
         title="Humain"
         body="Zéro objectif de vente. Zéro prime au multi-équipement. Du temps par client, un conseil honnête par construction."
-        image="/images/glim-club-team.png" imageWidth="clamp(380px,55vw,900px)"
+        image={asset("images/glim-club-team.png")} imageWidth="clamp(380px,55vw,900px)"
       />
     </section>
   );

@@ -1,4 +1,5 @@
 import { AR_OPTIONS, chf } from "../data/pricing";
+import { asset } from "../lib/asset";
 
 export default function AntiReflets() {
   const spectra = AR_OPTIONS[1];
@@ -17,7 +18,7 @@ export default function AntiReflets() {
         </p>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(300px,1fr))", gap: 14 }}>
           <div data-reveal="true" style={{ border: "2px solid rgba(245,240,232,.2)", display: "flex", flexDirection: "column" }}>
-            <div style={{ aspectRatio: "1", background: "#000 url('/images/ar-standard.jpeg') center/cover no-repeat" }} />
+            <div style={{ aspectRatio: "1", background: `#000 url('${asset("images/ar-standard.jpeg")}') center/cover no-repeat` }} />
             <div style={{ padding: "clamp(22px,2.5vw,34px)", display: "flex", flexDirection: "column", gap: 10 }}>
               <div className="font-mono" style={{ fontSize: 11, letterSpacing: ".18em", textTransform: "uppercase", color: "var(--lime)" }}>Inclus dans tous nos verres</div>
               <div className="font-display" style={{ fontSize: "clamp(26px,2.6vw,40px)", letterSpacing: ".02em", color: "var(--cream)" }}>Oasis</div>
@@ -25,7 +26,7 @@ export default function AntiReflets() {
             </div>
           </div>
           <div data-reveal="true" style={{ border: "2px solid var(--lime)", display: "flex", flexDirection: "column" }}>
-            <div style={{ aspectRatio: "1", background: "#000 url('/images/ar-super.png') center/cover no-repeat" }} />
+            <div style={{ aspectRatio: "1", background: `#000 url('${asset("images/ar-super.png")}') center/cover no-repeat` }} />
             <div style={{ padding: "clamp(22px,2.5vw,34px)", display: "flex", flexDirection: "column", gap: 10 }}>
               <div className="font-mono" style={{ fontSize: 11, letterSpacing: ".18em", textTransform: "uppercase", color: "var(--lime)" }}>L'option premium — + {chf(spectra.price)} · indicatif</div>
               <div className="font-display" style={{ fontSize: "clamp(26px,2.6vw,40px)", letterSpacing: ".02em", color: "var(--cream)" }}>Spectra</div>

@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import Magnetic from "./Magnetic";
+import { asset } from "../lib/asset";
 
 export default function Hero() {
   const logoRef = useRef(null);
@@ -108,7 +109,7 @@ export default function Hero() {
         <div className="hero-logo" style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 14 }}>
           <img
             ref={logoRef}
-            src="/images/logo-final.png"
+            src={asset("images/logo-final.png")}
             alt="Logo GLIM CLUB"
             style={{ display: "block", width: "clamp(180px,26vw,400px)", height: "auto", transition: "transform .25s ease-out", willChange: "transform" }}
           />

@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { asset } from "../lib/asset";
 
 export default function Film() {
   const wrapRef = useRef(null);
@@ -27,8 +28,8 @@ export default function Film() {
         loop
         playsInline
         preload="metadata"
-        poster="/images/interieur-magasin.png"
-        src="/assets/glim-film.mp4"
+        poster={asset("images/interieur-magasin.png")}
+        src={asset("assets/glim-film.mp4")}
         style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
       />
       <div

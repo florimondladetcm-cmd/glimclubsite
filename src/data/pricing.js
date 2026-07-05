@@ -3,14 +3,15 @@
 // Tous les prix affichés sur le site viennent d'ici. Montants
 // d'exemple, à remplacer une fois le fournisseur de verres choisi.
 // ============================================================
+import { asset } from "../lib/asset";
 
 export const FRAME_FROM = 150; // prix d'appel des montures (choisies en boutique)
 
 export const LENSES = [
-  { id: "unifocal", kind: "uni", name: "Unifocaux", price: 60, tag: "Vision simple", desc: "Loin ou près, un seul foyer. Anti-reflet Oasis inclus.", img: "/images/ar-super.png", fit: "cover" },
-  { id: "essential", kind: "prog", name: "Essential", price: 250, tag: "Progressifs", desc: "L'accès aux progressifs, précis et fiable. Anti-reflet Oasis inclus.", img: "/images/essential.png", fit: "contain" },
-  { id: "signature", kind: "prog", name: "Signature", price: 350, tag: "Progressifs", desc: "Champ de vision élargi, transitions plus douces. Anti-reflet Oasis inclus.", img: "/images/signature.png", fit: "contain" },
-  { id: "prestige", kind: "prog", name: "Prestige", price: 450, tag: "Progressifs — le meilleur", desc: "Le plus large champ de vision : mettez toutes les chances du côté de vos yeux.", img: "/images/prestige.png", fit: "contain" },
+  { id: "unifocal", kind: "uni", name: "Unifocaux", price: 60, tag: "Vision simple", desc: "Loin ou près, un seul foyer. Anti-reflet Oasis inclus.", img: asset("images/ar-super.png"), fit: "cover" },
+  { id: "essential", kind: "prog", name: "Essential", price: 250, tag: "Progressifs", desc: "L'accès aux progressifs, précis et fiable. Anti-reflet Oasis inclus.", img: asset("images/essential.png"), fit: "contain" },
+  { id: "signature", kind: "prog", name: "Signature", price: 350, tag: "Progressifs", desc: "Champ de vision élargi, transitions plus douces. Anti-reflet Oasis inclus.", img: asset("images/signature.png"), fit: "contain" },
+  { id: "prestige", kind: "prog", name: "Prestige", price: 450, tag: "Progressifs — le meilleur", desc: "Le plus large champ de vision : mettez toutes les chances du côté de vos yeux.", img: asset("images/prestige.png"), fit: "contain" },
 ];
 
 export const THICKNESS = [
