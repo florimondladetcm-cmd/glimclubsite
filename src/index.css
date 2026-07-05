@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700&display=swap');
+
+:root {
+  --black: #0A0A0F;
+  --lime: #C4F000;
+  --violet: #7C3AED;
+  --cream: #F5F0E8;
+  --yellow: #FFE600;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: auto; /* Lenis drives smooth scroll; native smooth-scroll would fight it */
+}
+
+body {
+  margin: 0;
+  background: var(--black);
+  color: var(--cream);
+  font-family: 'Archivo', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection { background: var(--lime); color: var(--black); }
+
+input, button { font-family: 'Archivo', sans-serif; }
+
+@media (pointer: fine) {
+  body, a, button, label { cursor: none; }
+  input { cursor: text; }
+}
+
+.font-display {
+  font-family: 'Anton', sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.font-mono {
+  font-family: ui-monospace, 'SFMono-Regular', Menlo, monospace;
+}
+
+/* scroll reveal (GSAP animates opacity/transform from these base states) */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(48px);
+}
+[data-reveal="scale"] {
+  transform: translateY(48px) scale(.96);
+}
+
+.glim-grain {
+  position: fixed;
+  inset: -50px;
+  z-index: 9000;
+  pointer-events: none;
+  opacity: .06;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22180%22 height=%22180%22><filter id=%22n%22><feTurbulence type=%22fractalNoise%22 baseFrequency=%220.85%22 numOctaves=%222%22/></filter><rect width=%22180%22 height=%22180%22 filter=%22url(%23n)%22/></svg>');
+}
+
+@keyframes glimPre {
+  0%, 80% { opacity: 1; }
+  100% { opacity: 0; visibility: hidden; }
+}
+@keyframes glimPreLogo {
+  0% { transform: translateY(110%); }
+  55%, 100% { transform: none; }
+}
+@keyframes glimPreBar {
+  0% { transform: scaleX(0); }
+  70%, 100% { transform: scaleX(1); }
+}
+@keyframes glimScrollHint {
+  0% { transform: scaleY(0); transform-origin: top; }
+  45% { transform: scaleY(1); transform-origin: top; }
+  55% { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+@keyframes glimPop {
+  0% { transform: scale(1); }
+  35% { transform: scale(1.14); }
+  100% { transform: scale(1); }
+}
+@keyframes glimMarquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@keyframes glimSparkle {
+  0%, 100% { opacity: .4; transform: scale(.8); }
+  50% { opacity: 1; transform: scale(1.15); }
+}
+
+.glim-sparkle {
+  color: var(--yellow);
+  display: inline-block;
+  animation: glimSparkle 2.4s ease-in-out infinite;
+}
+
+.glim-scroll-hint {
+  width: 2px;
+  height: 44px;
+  background: var(--lime);
+  animation: glimScrollHint 1.8s ease-in-out infinite;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: clamp(24px, 4vw, 64px);
+}
+@media (max-width: 700px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+    gap: 32px;
+  }
+  .hero-logo { order: -1; }
+  .hero-ctas { justify-content: center; }
+}
+
+.glim-marquee-track {
+  display: flex;
+  white-space: nowrap;
+  animation: glimMarquee 22s linear infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  [data-reveal] { opacity: 1 !important; transform: none !important; }
+  * { animation-duration: .001s !important; animation-iteration-count: 1 !important; }
+}
