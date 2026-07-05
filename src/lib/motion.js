@@ -4,8 +4,11 @@ import Lenis from "lenis";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Sets up Lenis smooth scroll wired into GSAP's ticker/ScrollTrigger, and
-// fades/slides in every [data-reveal] element as it enters the viewport.
+// Shared handle so components outside the App-level effect (e.g. the nav
+// menu) can trigger a smooth scroll-to through the same Lenis instance.
+export const lenisHandle = { current: null };
+
+// Sets up Lenis smooth scroll wired into GSAP's ticker/ScrollTrigger.
 // Returns a cleanup function. No-ops the smooth scroll (native scroll instead)
 // under prefers-reduced-motion.
 export function initScrollFX() {
@@ -22,11 +25,25 @@ export function initScrollFX() {
     };
     rafId = requestAnimationFrame(raf);
     gsap.ticker.lagSmoothing(0);
+    lenisHandle.current = lenis;
   }
 
-  const revealTriggers = gsap.utils.toArray("[data-reveal]").map((el) => {
+  return () => {
+    if (rafId) cancelAnimationFrame(rafId);
+    lenis?.destroy();
+    lenisHandle.current = null;
+  };
+}
+
+// Scans for any [data-reveal] element not yet wired up (freshly mounted
+// route content included) and attaches its fade/slide-in ScrollTrigger.
+// Safe to call repeatedly — already-bound elements are skipped.
+export function bindReveals() {
+  const els = gsap.utils.toArray("[data-reveal]:not([data-reveal-bound])");
+  els.forEach((el) => {
+    el.setAttribute("data-reveal-bound", "true");
     const scale = el.dataset.reveal === "scale";
-    return gsap.fromTo(
+    gsap.fromTo(
       el,
       { opacity: 0, y: 48, scale: scale ? 0.96 : 1 },
       {
@@ -43,14 +60,19 @@ export function initScrollFX() {
       }
     );
   });
-
   ScrollTrigger.refresh();
+}
 
-  return () => {
-    if (rafId) cancelAnimationFrame(rafId);
-    lenis?.destroy();
-    revealTriggers.forEach((t) => t.scrollTrigger?.kill());
-  };
+// Smoothly scrolls to a #hash target, using Lenis when available (desktop,
+// motion allowed) and falling back to native scrollIntoView otherwise.
+export function scrollToHash(hash) {
+  const el = document.querySelector(hash);
+  if (!el) return;
+  if (lenisHandle.current) {
+    lenisHandle.current.scrollTo(el, { offset: 0 });
+  } else {
+    el.scrollIntoView({ behavior: "smooth" });
+  }
 }
 
 export { gsap, ScrollTrigger };

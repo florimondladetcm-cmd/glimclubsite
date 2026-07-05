@@ -1,43 +1,39 @@
 import { useEffect } from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Cursor from "./components/Cursor";
 import Grain from "./components/Grain";
 import Preloader from "./components/Preloader";
-import Hero from "./components/Hero";
-import Marquee from "./components/Marquee";
-import Film from "./components/Film";
-import Manifesto from "./components/Manifesto";
-import Pillars from "./components/Pillars";
-import AntiReflets from "./components/AntiReflets";
-import Configurator from "./components/Configurator";
-import Guarantees from "./components/Guarantees";
-import Boutique from "./components/Boutique";
-import Club from "./components/Club";
-import Footer from "./components/Footer";
-import { initScrollFX } from "./lib/motion";
+import NavMenu from "./components/NavMenu";
+import Home from "./pages/Home";
+import Offres from "./pages/Offres";
+import { initScrollFX, bindReveals } from "./lib/motion";
 
 function App() {
+  const location = useLocation();
+
   useEffect(() => {
     const cleanup = initScrollFX();
     return cleanup;
   }, []);
+
+  useEffect(() => {
+    // Route content mounts after this effect runs, so new [data-reveal]
+    // elements on the page just navigated to get their ScrollTrigger.
+    bindReveals();
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
   return (
     <>
       <Grain />
       <Cursor />
       <Preloader />
+      <NavMenu />
 
-      <Hero />
-      <Marquee />
-      <Film />
-      <Manifesto />
-      <Pillars />
-      <AntiReflets />
-      <Configurator />
-      <Guarantees />
-      <Boutique />
-      <Club />
-      <Footer />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/offres" element={<Offres />} />
+      </Routes>
     </>
   );
 }
