@@ -28,14 +28,6 @@ export default function Hero() {
       />
 
       <div style={{ position: "relative", zIndex: 2, height: "100%", display: "flex", flexDirection: "column", padding: "clamp(16px,3vw,40px)", boxSizing: "border-box" }}>
-        <div
-          aria-hidden="true"
-          className="font-display hero-wordmark"
-          style={{ position: "absolute", top: "clamp(16px,3vw,40px)", left: "50%", transform: "translateX(-50%)", fontSize: 22, letterSpacing: ".02em", color: "var(--cream)" }}
-        >
-          GLIM<span style={{ color: "var(--lime)" }}> CLUB</span>
-        </div>
-
         <nav style={{ display: "flex", alignItems: "center", justifyContent: "flex-end", gap: 16 }}>
           <div className="font-mono hero-eyebrow-label" style={{ fontSize: 12, letterSpacing: ".14em", color: "var(--cream)", opacity: 0.6, textTransform: "uppercase" }}>
             Vevey — T1 2027

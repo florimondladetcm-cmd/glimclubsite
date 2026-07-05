@@ -34,7 +34,20 @@ export default function ShopPage() {
         <div style={{ maxWidth: 1400, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(260px,1fr))", gap: 14 }}>
           {SHOP_PRODUCTS.map((p) => (
             <div key={p.id} data-reveal="true" style={{ border: "2px solid rgba(245,240,232,.2)", display: "flex", flexDirection: "column" }}>
-              <div style={{ aspectRatio: "1", background: `#000 url('${asset(p.img)}') center/cover no-repeat` }} />
+              {p.video ? (
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="auto"
+                  poster={asset(p.img)}
+                  src={asset(p.video)}
+                  style={{ aspectRatio: "1", width: "100%", objectFit: "cover", background: "#000" }}
+                />
+              ) : (
+                <div style={{ aspectRatio: "1", background: `#000 url('${asset(p.img)}') center/cover no-repeat` }} />
+              )}
               <div style={{ padding: "clamp(20px,2.5vw,28px)", display: "flex", flexDirection: "column", gap: 8, flex: 1 }}>
                 <div className="font-display" style={{ fontSize: "clamp(22px,2.2vw,30px)", letterSpacing: ".02em", color: "var(--cream)" }}>{p.name}</div>
                 <div style={{ fontSize: 14, lineHeight: 1.5, color: "var(--cream)", opacity: 0.7 }}>{p.desc}</div>

@@ -49,8 +49,7 @@ export const chf = (n) => n.toLocaleString("fr-CH") + " CHF";
 // SHOP — accessoires, prix indicatifs
 // ============================================================
 export const SHOP_PRODUCTS = [
-  { id: "spray", name: "Spray nettoyant", price: 12, img: "images/spray.png", desc: "Formule douce, sans traces, tous types de verres. 100 ml." },
-  { id: "microfibre", name: "Microfibre collector", price: 8, img: "images/microfibre.png", desc: "Le tissu qu'on garde toujours sur soi. Lavable, réutilisable." },
-  { id: "carnet", name: "Carnet de vue", price: 15, img: "images/carnet-de-vue.png", desc: "Vos montures, vos verres, votre suivi — tout au même endroit." },
-  { id: "totebag", name: "Tote bag GLIM CLUB", price: 25, img: "images/totebag.png", desc: "Coton épais, format généreux. Pour transporter autre chose que des lunettes." },
+  { id: "spray", name: "Spray nettoyant", price: 12, video: "assets/spray.mp4", img: "images/spray.png", desc: "Formule douce, sans traces, tous types de verres. 35 ml." },
+  { id: "microfibre", name: "Microfibre collector", price: 8, video: "assets/microfibre.mp4", img: "images/microfibre.png", desc: "Le tissu qu'on garde toujours sur soi. Lavable, réutilisable." },
+  { id: "totebag", name: "Tote bag GLIM CLUB", price: 25, video: "assets/tote-bag.mp4", img: "images/totebag.png", desc: "Coton épais, format généreux. Pour transporter autre chose que des lunettes." },
 ];

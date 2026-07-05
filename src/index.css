@@ -106,9 +106,12 @@ input, button { font-family: 'Archivo', sans-serif; }
   animation: glimScrollHint 1.8s ease-in-out infinite;
 }
 
+.global-wordmark {
+  display: inline-block;
+}
 @media (max-width: 700px) {
   .hero-ctas { justify-content: center; }
-  .hero-wordmark { display: none; }
+  .global-wordmark { display: none; }
 }
 @media (max-width: 480px) {
   .hero-eyebrow-label { display: none; }
