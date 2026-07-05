@@ -40,7 +40,7 @@ export default function ShopProductPage() {
           </Link>
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(320px,1fr))", gap: "clamp(32px,5vw,72px)", alignItems: "center" }}>
-            <div style={{ aspectRatio: "1", border: "2px solid rgba(245,240,232,.2)", overflow: "hidden" }}>
+            <div style={{ aspectRatio: "16/9", border: "2px solid rgba(245,240,232,.2)", overflow: "hidden", background: "#000" }}>
               <video
                 autoPlay
                 muted
@@ -49,7 +49,7 @@ export default function ShopProductPage() {
                 preload="auto"
                 poster={asset(product.img)}
                 src={asset(product.video)}
-                style={{ width: "100%", height: "100%", objectFit: "cover", background: "#000" }}
+                style={{ width: "100%", height: "100%", objectFit: "contain", background: "#000" }}
               />
             </div>
             <div>
