@@ -66,9 +66,12 @@ export default function Club() {
             <div style={{ aspectRatio: "1", border: "2px solid var(--black)", overflow: "hidden" }}>
               <img src={asset("images/totebag.png")} alt="Tote bag GLIM CLUB" style={{ display: "block", width: "100%", height: "100%", objectFit: "cover" }} />
             </div>
+            <div style={{ aspectRatio: "1", border: "2px solid var(--black)", overflow: "hidden" }}>
+              <img src={asset("images/carnet-de-vue.png")} alt="Carnet de vue GLIM CLUB" style={{ display: "block", width: "100%", height: "100%", objectFit: "cover" }} />
+            </div>
           </div>
           <div className="font-mono" style={{ marginTop: 10, fontSize: 11, letterSpacing: ".08em", opacity: 0.6 }}>
-            Microfibre collector · spray nettoyant · tote bag — offerts aux 100 premiers.
+            Microfibre collector · spray nettoyant · tote bag · carnet de vue — offerts aux 100 premiers.
           </div>
         </div>
       </div>

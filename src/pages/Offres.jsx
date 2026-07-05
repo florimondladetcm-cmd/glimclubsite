@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import gsap from "gsap";
 import Magnetic from "../components/Magnetic";
-import { scrollToHash } from "../lib/motion";
 
 const GAGS = [
   "Pas de -20% si vous avez plus de 60 ans.",
@@ -32,10 +31,6 @@ export default function Offres() {
     return () => clearTimeout(t);
   }, []);
 
-  const goHomeTo = (hash) => {
-    navigate("/", { state: { scrollTo: hash } });
-    requestAnimationFrame(() => scrollToHash(hash));
-  };
 
   return (
     <section style={{ minHeight: "100vh", background: "var(--black)", color: "var(--cream)", padding: "clamp(90px,16vh,180px) clamp(16px,4vw,64px) clamp(60px,8vh,100px)", boxSizing: "border-box" }}>
@@ -97,10 +92,10 @@ export default function Offres() {
             <span style={{ color: "var(--lime)" }}>On a déjà mis le prix le plus juste. Une fois. Pour tout le monde.</span>
           </p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: 16 }}>
-            <Magnetic as="button" onClick={() => goHomeTo("#verres")} style={{ background: "var(--lime)", color: "var(--black)", border: "none", fontWeight: 700, fontSize: 15, letterSpacing: ".04em", padding: "18px 32px", textTransform: "uppercase", cursor: "pointer" }}>
+            <Magnetic as="button" onClick={() => navigate("/verres")} style={{ background: "var(--lime)", color: "var(--black)", border: "none", fontWeight: 700, fontSize: 15, letterSpacing: ".04em", padding: "18px 32px", textTransform: "uppercase", cursor: "pointer" }}>
               Voir nos vrais prix
             </Magnetic>
-            <Magnetic as="button" onClick={() => goHomeTo("#club")} style={{ background: "none", border: "2px solid var(--lime)", color: "var(--cream)", fontWeight: 700, fontSize: 15, letterSpacing: ".04em", padding: "16px 30px", textTransform: "uppercase", cursor: "pointer" }}>
+            <Magnetic as="button" onClick={() => navigate("/club")} style={{ background: "none", border: "2px solid var(--lime)", color: "var(--cream)", fontWeight: 700, fontSize: 15, letterSpacing: ".04em", padding: "16px 30px", textTransform: "uppercase", cursor: "pointer" }}>
               Rejoindre le club quand même
             </Magnetic>
           </div>

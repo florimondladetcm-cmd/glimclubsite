@@ -1,8 +1,8 @@
 import { useEffect, useRef } from "react";
 import { gsap, ScrollTrigger } from "../lib/motion";
 
-const KIN_TEXT = "L'optique est bien réglée. Contre vous.";
-const ACCENT_FROM = KIN_TEXT.indexOf("Contre");
+const KIN_TEXT = "Rien d'innovant. Juste honnête.";
+const ACCENT_FROM = KIN_TEXT.indexOf("honnête");
 
 const STEPS = [
   {
@@ -113,8 +113,8 @@ export default function Manifesto() {
 
         <div data-reveal="scale" style={{ marginTop: "clamp(80px,12vh,160px)", background: "var(--lime)", color: "var(--black)", padding: "clamp(40px,6vw,90px)" }}>
           <p className="font-display" style={{ margin: 0, fontSize: "clamp(30px,4.5vw,72px)", lineHeight: 1.08 }}>
-            Chez GLIM, il n'y a plus de 01 / 02 / 03.<br />
-            <span style={{ color: "var(--violet)" }}>Juste un prix. Un opticien. Un choix.</span>
+            On a fait plus simple.<br />
+            <span style={{ color: "var(--violet)" }}>Un prix. Un opticien. Point final.</span>
           </p>
         </div>
       </div>

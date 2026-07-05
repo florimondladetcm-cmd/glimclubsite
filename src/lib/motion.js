@@ -4,10 +4,6 @@ import Lenis from "lenis";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Shared handle so components outside the App-level effect (e.g. the nav
-// menu) can trigger a smooth scroll-to through the same Lenis instance.
-export const lenisHandle = { current: null };
-
 // Sets up Lenis smooth scroll wired into GSAP's ticker/ScrollTrigger.
 // Returns a cleanup function. No-ops the smooth scroll (native scroll instead)
 // under prefers-reduced-motion.
@@ -25,13 +21,11 @@ export function initScrollFX() {
     };
     rafId = requestAnimationFrame(raf);
     gsap.ticker.lagSmoothing(0);
-    lenisHandle.current = lenis;
   }
 
   return () => {
     if (rafId) cancelAnimationFrame(rafId);
     lenis?.destroy();
-    lenisHandle.current = null;
   };
 }
 
@@ -61,18 +55,6 @@ export function bindReveals() {
     );
   });
   ScrollTrigger.refresh();
-}
-
-// Smoothly scrolls to a #hash target, using Lenis when available (desktop,
-// motion allowed) and falling back to native scrollIntoView otherwise.
-export function scrollToHash(hash) {
-  const el = document.querySelector(hash);
-  if (!el) return;
-  if (lenisHandle.current) {
-    lenisHandle.current.scrollTo(el, { offset: 0 });
-  } else {
-    el.scrollIntoView({ behavior: "smooth" });
-  }
 }
 
 export { gsap, ScrollTrigger };

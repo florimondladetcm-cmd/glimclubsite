@@ -1,49 +1,17 @@
-import { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import Magnetic from "./Magnetic";
 import { asset } from "../lib/asset";
-import { ScrollTrigger } from "../lib/motion";
 
 export default function Hero() {
-  const sectionRef = useRef(null);
-  const videoRef = useRef(null);
-
-  useEffect(() => {
-    const section = sectionRef.current;
-    const video = videoRef.current;
-    if (!section || !video) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
-    let st;
-    const bind = () => {
-      st = ScrollTrigger.create({
-        trigger: section,
-        start: "top top",
-        end: "+=250%",
-        pin: true,
-        scrub: true,
-        onUpdate: (self) => {
-          if (video.duration) video.currentTime = self.progress * video.duration;
-        },
-      });
-    };
-    if (video.readyState >= 1) bind();
-    else video.addEventListener("loadedmetadata", bind, { once: true });
-
-    return () => {
-      video.removeEventListener("loadedmetadata", bind);
-      st?.kill();
-    };
-  }, []);
-
   return (
     <section
       id="hero"
-      ref={sectionRef}
       style={{ position: "relative", height: "100vh", overflow: "hidden", background: "var(--black)" }}
     >
       <video
-        ref={videoRef}
+        autoPlay
         muted
+        loop
         playsInline
         preload="auto"
         poster={asset("images/interieur-magasin.png")}
@@ -73,8 +41,8 @@ export default function Hero() {
             Vevey — T1 2027
           </div>
           <Magnetic
-            as="a"
-            href="#club"
+            as={Link}
+            to="/club"
             style={{
               display: "inline-flex",
               alignItems: "center",
@@ -119,15 +87,15 @@ export default function Hero() {
           </p>
           <div data-reveal="true" className="hero-ctas" style={{ display: "flex", flexWrap: "wrap", gap: 16, marginTop: 36 }}>
             <Magnetic
-              as="a"
-              href="#club"
+              as={Link}
+              to="/club"
               style={{ background: "var(--lime)", color: "var(--black)", textDecoration: "none", fontWeight: 700, fontSize: 15, letterSpacing: ".04em", padding: "18px 34px", textTransform: "uppercase" }}
             >
               Rejoindre le club
             </Magnetic>
             <Magnetic
-              as="a"
-              href="#verres"
+              as={Link}
+              to="/verres"
               style={{ border: "2px solid var(--violet)", color: "var(--cream)", textDecoration: "none", fontWeight: 700, fontSize: 15, letterSpacing: ".04em", padding: "16px 32px", textTransform: "uppercase" }}
             >
               Voir nos verres
