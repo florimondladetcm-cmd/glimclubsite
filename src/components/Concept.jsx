@@ -1,6 +1,6 @@
 const STEPS = [
   { n: "01", title: "Vous composez en toute transparence", body: "Monture, verres, options : vous voyez le prix se construire sous vos yeux, jamais après coup." },
-  { n: "02", title: "Vous gardez le même opticien", body: "Pas de turnover de vendeurs, pas de fiche client anonyme. La même personne, année après année." },
+  { n: "02", title: "On vous aide à durer", body: "Conseils d'entretien, ajustements gratuits à vie, garanties écrites noir sur crème. Une paire, ça se choisit une fois — et ça doit tenir la distance." },
 ];
 
 export default function Concept() {

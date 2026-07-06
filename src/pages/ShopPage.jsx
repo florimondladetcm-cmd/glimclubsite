@@ -34,7 +34,7 @@ export default function ShopPage() {
               <div style={{ padding: "clamp(20px,2.5vw,28px)", display: "flex", flexDirection: "column", gap: 8, flex: 1 }}>
                 <div className="font-display" style={{ fontSize: "clamp(22px,2.2vw,30px)", letterSpacing: ".02em", color: "var(--cream)" }}>{p.name}</div>
                 <div style={{ fontSize: 14, lineHeight: 1.5, color: "var(--cream)", opacity: 0.7 }}>{p.shortDesc}</div>
-                <div className="font-display" style={{ fontSize: "clamp(20px,1.8vw,26px)", marginTop: "auto", color: "var(--lime)" }}>dès {chf(p.price)}</div>
+                <div className="font-display" style={{ fontSize: "clamp(20px,1.8vw,26px)", marginTop: "auto", color: "var(--lime)" }}>{chf(p.price)}</div>
               </div>
             </Link>
           ))}

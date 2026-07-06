@@ -59,11 +59,10 @@ export const SHOP_PRODUCTS = [
   },
   {
     id: "microfibre",
-    name: "Microfibre collector",
+    name: "Microfibre",
     price: 8,
     video: "assets/microfibre.mp4",
-    img: "images/microfibre.png",
-    gallery: ["images/microfibre-variants.png"],
+    img: "images/microfibre-variants.png",
     shortDesc: "Lavable, réutilisable.",
     desc: "Le tissu qu'on garde toujours sur soi. Lavable, réutilisable, doux sur tous les traitements de verres — y compris l'anti-reflet Spectra Ultra.",
   },

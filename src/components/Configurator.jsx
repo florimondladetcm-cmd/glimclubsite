@@ -3,7 +3,11 @@ import {
   FRAME_FROM, LENSES, THICKNESS, AR_OPTIONS, TINTS,
   AR_INTERNE_PRICE, BLUE_LIGHT_PRICE, chf,
 } from "../data/pricing";
+import { asset } from "../lib/asset";
 import Magnetic from "./Magnetic";
+
+const AR_IMAGES = { oasis: "images/ar-standard.jpeg", spectra: "images/ar-super.png" };
+const AR_TAGLINES = { oasis: "Inclus dans tous nos verres", spectra: "L'option premium" };
 
 function CheckRow({ selected, onClick, label, priceLabel }) {
   return (
@@ -44,8 +48,9 @@ function LensCard({ lens, selected, onClick }) {
         <div className="font-mono" style={{ fontSize: 11, letterSpacing: ".18em", textTransform: "uppercase", color: selected ? "var(--violet)" : "var(--lime)" }}>{lens.tag}</div>
         <div className="font-display" style={{ fontSize: "clamp(24px,2.2vw,34px)", letterSpacing: ".02em" }}>{lens.name}</div>
         <div style={{ fontSize: 14, lineHeight: 1.5, opacity: 0.75 }}>{lens.desc}</div>
-        <div className="font-display" style={{ fontSize: "clamp(22px,2vw,30px)", marginTop: "auto" }}>
-          dès {chf(lens.price)} <span className="font-mono" style={{ fontSize: 12, letterSpacing: ".08em", textTransform: "none", opacity: 0.65, color: selected ? "var(--black)" : "var(--violet)" }}>la paire de verres</span>
+        <div style={{ marginTop: "auto", display: "flex", flexWrap: "wrap", alignItems: "baseline", gap: 10 }}>
+          <div className="font-display" style={{ fontSize: "clamp(22px,2vw,30px)" }}>dès {chf(lens.price)}</div>
+          <div className="font-display" style={{ fontSize: "clamp(15px,1.3vw,20px)", opacity: 0.85, color: selected ? "var(--black)" : "var(--violet)" }}>la paire de verres</div>
         </div>
       </div>
     </button>
@@ -69,6 +74,29 @@ function TintOrArCard({ selected, onClick, tag, name, desc, priceLabel }) {
         <div style={{ fontSize: 13, lineHeight: 1.5, opacity: 0.65 }}>{desc}</div>
       </div>
       <div style={{ fontWeight: 700, fontSize: 15, color: "var(--lime)" }}>{priceLabel}</div>
+    </button>
+  );
+}
+
+function ArPhotoCard({ ar, selected, onClick }) {
+  return (
+    <button
+      onClick={onClick}
+      style={{
+        textAlign: "left", padding: 0,
+        border: `2px solid ${selected ? "var(--lime)" : "rgba(245,240,232,.2)"}`,
+        background: "transparent", color: "var(--cream)",
+        display: "flex", flexDirection: "column", transition: "border-color .2s",
+        font: "inherit", cursor: "pointer",
+      }}
+    >
+      <div style={{ aspectRatio: "1", background: `#000 url('${asset(AR_IMAGES[ar.id])}') center/cover no-repeat` }} />
+      <div style={{ padding: "clamp(20px,2.5vw,28px)", display: "flex", flexDirection: "column", gap: 8 }}>
+        <div className="font-mono" style={{ fontSize: 11, letterSpacing: ".18em", textTransform: "uppercase", color: "var(--lime)" }}>{AR_TAGLINES[ar.id]}</div>
+        <div className="font-display" style={{ fontSize: "clamp(24px,2.4vw,36px)", letterSpacing: ".02em", color: selected ? "var(--lime)" : "var(--cream)" }}>{ar.name}</div>
+        <p style={{ margin: 0, fontSize: 14, lineHeight: 1.55, opacity: 0.7 }}>{ar.desc}</p>
+        <div className="font-display" style={{ fontSize: "clamp(18px,1.6vw,24px)", color: "var(--lime)", marginTop: 8 }}>{ar.price > 0 ? "+ " + chf(ar.price) : "Inclus"}</div>
+      </div>
     </button>
   );
 }
@@ -162,7 +190,7 @@ export default function Configurator() {
           </p>
           <div style={{ display: "flex", flexDirection: "column", gap: 32 }}>
             <div>
-              <div className="font-mono" style={{ fontSize: 11, letterSpacing: ".18em", textTransform: "uppercase", color: "var(--violet)", marginBottom: 12 }}>Unifocaux — un seul foyer</div>
+              <div className="font-display" style={{ fontSize: "clamp(22px,2.4vw,34px)", letterSpacing: ".01em", color: "var(--violet)", marginBottom: 14 }}>Unifocaux — un seul foyer</div>
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(250px,420px))", gap: 14 }}>
                 {LENSES.filter((l) => l.kind === "uni").map((l) => (
                   <LensCard key={l.id} lens={l} selected={lens === l.id} onClick={() => pickLens(l.id)} />
@@ -170,7 +198,7 @@ export default function Configurator() {
               </div>
             </div>
             <div>
-              <div className="font-mono" style={{ fontSize: 11, letterSpacing: ".18em", textTransform: "uppercase", color: "var(--violet)", marginBottom: 12 }}>Progressifs — net à toutes les distances</div>
+              <div className="font-display" style={{ fontSize: "clamp(22px,2.4vw,34px)", letterSpacing: ".01em", color: "var(--violet)", marginBottom: 14 }}>Progressifs — net à toutes les distances</div>
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(250px,1fr))", gap: 14 }}>
                 {LENSES.filter((l) => l.kind === "prog").map((l) => (
                   <LensCard key={l.id} lens={l} selected={lens === l.id} onClick={() => pickLens(l.id)} />
@@ -193,9 +221,25 @@ export default function Configurator() {
           </div>
         </div>
 
-        {/* Étape 3 : teintes */}
+        {/* Étape 3 : anti-reflet */}
         <div data-reveal="true" style={{ marginBottom: "clamp(56px,8vh,90px)" }}>
-          {stepHeader("03", "Choisir une teinte", "optionnel — une seule teinte à la fois, cliquez à nouveau pour retirer")}
+          {stepHeader("03", "Choisir le traitement anti-reflet", "Oasis inclus d'office")}
+          <p style={{ margin: "0 0 24px", maxWidth: "60ch", fontSize: 15, lineHeight: 1.6, color: "var(--cream)", opacity: 0.6 }}>
+            Tous nos verres partent avec un anti-reflet sérieux, inclus d'office. Ceux qui détestent nettoyer leurs lunettes prendront le niveau au-dessus.
+          </p>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(280px,1fr))", gap: 14 }}>
+            {AR_OPTIONS.map((a) => (
+              <ArPhotoCard key={a.id} ar={a} selected={ar === a.id} onClick={() => pickAr(a.id)} />
+            ))}
+          </div>
+          <div style={{ marginTop: 12 }}>
+            <CheckRow selected={blue} onClick={toggleBlue} label="Filtre lumière bleue" priceLabel={"+ " + chf(BLUE_LIGHT_PRICE)} />
+          </div>
+        </div>
+
+        {/* Étape 4 : teintes */}
+        <div data-reveal="true" style={{ marginBottom: "clamp(56px,8vh,90px)" }}>
+          {stepHeader("04", "Choisir une teinte", "optionnel — une seule teinte à la fois, cliquez à nouveau pour retirer")}
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(260px,1fr))", gap: 12 }}>
             {TINTS.map((t) => (
               <TintOrArCard
@@ -209,38 +253,13 @@ export default function Configurator() {
               />
             ))}
           </div>
-        </div>
-
-        {/* Étape 4 : anti-reflet */}
-        <div data-reveal="true" style={{ marginBottom: "clamp(56px,8vh,90px)" }}>
-          {stepHeader("04", "Choisir l'anti-reflet", selectedTint ? "avec une teinte, le traitement passe en face interne" : "Oasis inclus d'office")}
-          {!selectedTint && (
-            <>
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(280px,1fr))", gap: 12 }}>
-                {AR_OPTIONS.map((a) => (
-                  <TintOrArCard
-                    key={a.id}
-                    selected={ar === a.id}
-                    onClick={() => pickAr(a.id)}
-                    tag={a.tag}
-                    name={a.name}
-                    desc={a.desc}
-                    priceLabel={a.price > 0 ? "+ " + chf(a.price) : "inclus"}
-                  />
-                ))}
-              </div>
-              <div style={{ marginTop: 12 }}>
-                <CheckRow selected={blue} onClick={toggleBlue} label="Filtre lumière bleue" priceLabel={"+ " + chf(BLUE_LIGHT_PRICE)} />
-              </div>
-            </>
-          )}
           {selectedTint && (
-            <>
+            <div style={{ marginTop: 24 }}>
               <p style={{ margin: "0 0 16px", maxWidth: "60ch", fontSize: 15, lineHeight: 1.6, color: "var(--cream)", opacity: 0.6 }}>
-                Sur des verres teintés, l'anti-reflet se pose côté intérieur : il bloque les reflets qui reviennent par l'arrière du verre.
+                Sur des verres teintés, l'anti-reflet se pose côté intérieur : il bloque les reflets qui reviennent par l'arrière du verre. Il remplace le traitement choisi à l'étape 3.
               </p>
               <CheckRow selected={arInterne} onClick={toggleArInterne} label="Anti-reflet face interne" priceLabel={"+ " + chf(AR_INTERNE_PRICE)} />
-            </>
+            </div>
           )}
         </div>
       </div>

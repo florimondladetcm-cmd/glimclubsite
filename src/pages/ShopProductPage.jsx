@@ -60,7 +60,7 @@ export default function ShopProductPage() {
                 {product.desc}
               </p>
               <div data-reveal="true" className="font-display" style={{ fontSize: "clamp(26px,3vw,40px)", color: "var(--lime)", marginBottom: 8 }}>
-                dès {chf(product.price)}
+                {chf(product.price)}
               </div>
               {product.refillPrice != null && (
                 <div className="font-mono" style={{ fontSize: 13, letterSpacing: ".08em", color: "var(--cream)", opacity: 0.6, marginBottom: 32 }}>

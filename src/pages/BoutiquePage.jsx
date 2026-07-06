@@ -30,6 +30,26 @@ export default function BoutiquePage() {
         </div>
       </section>
       <Boutique />
+
+      <section style={{ background: "var(--black)", padding: "0 clamp(16px,4vw,64px) clamp(90px,12vh,140px)" }}>
+        <div style={{ maxWidth: 1000, margin: "0 auto" }}>
+          <div className="font-mono" style={{ fontSize: 13, letterSpacing: ".2em", color: "var(--lime)", textTransform: "uppercase", marginBottom: 20 }}>
+            L'expérience en boutique
+          </div>
+          <div data-reveal="true" style={{ border: "2px solid rgba(245,240,232,.2)" }}>
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="auto"
+              src={asset("assets/cliente-essayage.mp4")}
+              style={{ display: "block", width: "100%", height: "auto" }}
+            />
+          </div>
+        </div>
+      </section>
+
       <Footer />
     </>
   );
