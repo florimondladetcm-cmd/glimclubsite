@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700&display=swap');
 
+/* Tailwind (theme tokens + utilities only — preflight/base reset skipped on
+   purpose: the rest of this site is styled entirely via inline styles on
+   plain elements, and Tailwind's base reset would change their unstyled
+   fallback appearance — margins, button chrome, etc. — site-wide). */
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+
 :root {
   --black: #0A0A0F;
   --lime: #C4F000;
