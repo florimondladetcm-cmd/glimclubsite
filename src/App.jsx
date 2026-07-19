@@ -10,12 +10,15 @@ import VerresPage from "./pages/VerresPage";
 import GarantiesPage from "./pages/GarantiesPage";
 import BoutiquePage from "./pages/BoutiquePage";
 import ContactPage from "./pages/ContactPage";
-import PressePage from "./pages/PressePage";
 import ShopPage from "./pages/ShopPage";
 import ShopProductPage from "./pages/ShopProductPage";
 import CreateursPage from "./pages/CreateursPage";
-import EvenementsPage from "./pages/EvenementsPage";
 import ConseilsPage from "./pages/ConseilsPage";
+// Masqués temporairement (pas encore de contenu). Les fichiers de page
+// restent en place ; réactiver en décommentant ces imports + les <Route> +
+// les entrées dans NavMenu.jsx.
+// import PressePage from "./pages/PressePage";
+// import EvenementsPage from "./pages/EvenementsPage";
 import Offres from "./pages/Offres";
 import { initScrollFX, bindReveals } from "./lib/motion";
 
@@ -48,12 +51,12 @@ function App() {
         <Route path="/garanties" element={<GarantiesPage />} />
         <Route path="/boutique" element={<BoutiquePage />} />
         <Route path="/contact" element={<ContactPage />} />
-        <Route path="/presse" element={<PressePage />} />
         <Route path="/shop" element={<ShopPage />} />
         <Route path="/shop/:id" element={<ShopProductPage />} />
         <Route path="/createurs" element={<CreateursPage />} />
-        <Route path="/evenements" element={<EvenementsPage />} />
         <Route path="/conseils" element={<ConseilsPage />} />
+        {/* Masqués temporairement : <Route path="/presse" element={<PressePage />} /> */}
+        {/* Masqués temporairement : <Route path="/evenements" element={<EvenementsPage />} /> */}
         <Route path="/offres" element={<Offres />} />
       </Routes>
     </>

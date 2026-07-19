@@ -10,8 +10,10 @@ const LINKS = [
   { label: "Conseils", to: "/conseils" },
   { label: "Shop", to: "/shop" },
   { label: "Créateurs", to: "/createurs" },
-  { label: "Presse", to: "/presse" },
-  { label: "Événements", to: "/evenements" },
+  // Masqués temporairement (pas encore de contenu) — réactiver en décommentant
+  // ici + dans App.jsx. Les pages PressePage/EvenementsPage restent en place.
+  // { label: "Presse", to: "/presse" },
+  // { label: "Événements", to: "/evenements" },
   { label: "Nos offres", to: "/offres", accent: true },
   { label: "Contact", to: "/contact" },
 ];
