@@ -9,6 +9,7 @@ const LINKS = [
   { label: "Notre boutique", to: "/boutique" },
   { label: "Conseils", to: "/conseils" },
   { label: "Shop", to: "/shop" },
+  { label: "Créateurs", to: "/createurs" },
   { label: "Presse", to: "/presse" },
   { label: "Événements", to: "/evenements" },
   { label: "Nos offres", to: "/offres", accent: true },

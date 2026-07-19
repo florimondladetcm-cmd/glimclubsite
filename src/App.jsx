@@ -13,6 +13,7 @@ import ContactPage from "./pages/ContactPage";
 import PressePage from "./pages/PressePage";
 import ShopPage from "./pages/ShopPage";
 import ShopProductPage from "./pages/ShopProductPage";
+import CreateursPage from "./pages/CreateursPage";
 import EvenementsPage from "./pages/EvenementsPage";
 import ConseilsPage from "./pages/ConseilsPage";
 import Offres from "./pages/Offres";
@@ -50,6 +51,7 @@ function App() {
         <Route path="/presse" element={<PressePage />} />
         <Route path="/shop" element={<ShopPage />} />
         <Route path="/shop/:id" element={<ShopProductPage />} />
+        <Route path="/createurs" element={<CreateursPage />} />
         <Route path="/evenements" element={<EvenementsPage />} />
         <Route path="/conseils" element={<ConseilsPage />} />
         <Route path="/offres" element={<Offres />} />
