@@ -3,8 +3,13 @@ import { Link } from "react-router-dom";
 import Magnetic from "./Magnetic";
 import { asset } from "../lib/asset";
 
-// Phrase d'accroche : une des trois tirée au hasard à chaque chargement de page.
-const TAGLINES = ["Voir. Être vu.", "Good eyes. Good taste.", "Not for everyone."];
+// Titre d'accroche : un des trois tiré au hasard à chaque chargement de page.
+// `l2` s'affiche en citron sous `l1`, façon "Voir le monde / autrement.".
+const TAGLINES = [
+  { l1: "Voir.", l2: "Être vu." },
+  { l1: "Good eyes.", l2: "Good taste." },
+  { l1: "Not for", l2: "everyone." },
+];
 
 export default function Hero() {
   const [tagline] = useState(() => TAGLINES[Math.floor(Math.random() * TAGLINES.length)]);
@@ -75,13 +80,14 @@ export default function Hero() {
               lineHeight: 0.96,
               letterSpacing: ".005em",
               color: "var(--cream)",
+              textTransform: "uppercase",
             }}
           >
-            <span style={{ display: "block" }}>Voir le monde</span>
-            <span style={{ display: "block", color: "var(--lime)" }}>autrement.</span>
+            <span style={{ display: "block" }}>{tagline.l1}</span>
+            <span style={{ display: "block", color: "var(--lime)" }}>{tagline.l2}</span>
           </h1>
-          <p data-reveal="true" className="font-display" style={{ margin: "28px 0 0", maxWidth: "44ch", fontSize: "clamp(22px,2.4vw,36px)", lineHeight: 1.1, letterSpacing: ".02em", color: "var(--cream)", textTransform: "uppercase" }}>
-            {tagline}
+          <p data-reveal="true" style={{ margin: "28px 0 0", maxWidth: "44ch", fontSize: "clamp(16px,1.4vw,20px)", lineHeight: 1.55, color: "var(--cream)", opacity: 0.9 }}>
+            Un vrai opticien. Des prix affichés. Une communauté.
           </p>
           <div data-reveal="true" className="hero-ctas" style={{ display: "flex", flexWrap: "wrap", gap: 16, marginTop: 36 }}>
             <Magnetic
